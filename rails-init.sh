@@ -25,15 +25,15 @@ echo "### remove extra files ###"
 cd $rails_app_name
 
 echo "Gemfile:"
-curl "https://raw.githubusercontent.com/suiyujin/rails-init/master/Gemfile" -o Gemfile
+curl "https://raw.githubusercontent.com/suiyujin/rails-init/master/files/Gemfile" -o Gemfile
 echo ".pryrc:"
-curl "https://raw.githubusercontent.com/suiyujin/rails-init/master/.pryrc" -o .pryrc
+curl "https://raw.githubusercontent.com/suiyujin/rails-init/master/files/.pryrc" -o .pryrc
 echo ".gitignore:"
-curl "https://raw.githubusercontent.com/suiyujin/rails-init/master/.gitignore" -o .gitignore
+curl "https://raw.githubusercontent.com/suiyujin/rails-init/master/files/.gitignore" -o .gitignore
 echo "development.rb:"
-curl "https://raw.githubusercontent.com/suiyujin/rails-init/master/development.rb" -o config/environments/development.rb
+curl "https://raw.githubusercontent.com/suiyujin/rails-init/master/files/development.rb" -o config/environments/development.rb
 echo "ja.yml:"
-curl "https://raw.githubusercontent.com/suiyujin/rails-init/master/ja.yml" -o config/locales/ja.yml
+curl "https://raw.githubusercontent.com/suiyujin/rails-init/master/files/ja.yml" -o config/locales/ja.yml
 
 bundle install --path vendor/bundle
 
