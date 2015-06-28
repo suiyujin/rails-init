@@ -2,7 +2,9 @@
 
 read -p "rails app name: " rails_app_name
 read -p "database user: " database_user
-read -p "database password: " database_password
+read -sp "database password: " database_password
+
+echo ""
 
 rbenv global 2.2.2
 rbenv rehash
