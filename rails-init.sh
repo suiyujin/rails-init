@@ -1,11 +1,21 @@
 #!/bin/sh
 
+set -e
+
 read -p "ruby version: " ruby_version
+# TODO: 未入力の場合、最新バージョンとする(&バリデーション)
+
 read -p "rails version: " rails_version
+# TODO: 未入力の場合、最新バージョンとする(&バリデーション)
 
 read -p "rails app name: " rails_app_name
+# TODO: 未入力の場合、エラーを出して終了(&バリデーション)
+
 read -p "database user: " database_user
+# TODO: 未入力の場合、エラーを出して終了(&バリデーション)
+
 read -sp "database password: " database_password
+# TODO: 未入力の場合、エラーを出して終了(&バリデーション)
 
 echo ""
 
