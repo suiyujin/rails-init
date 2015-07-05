@@ -1,18 +1,21 @@
 #!/bin/sh
 
+read -p "ruby version: " ruby_version
+read -p "rails version: " rails_version
+
 read -p "rails app name: " rails_app_name
 read -p "database user: " database_user
 read -sp "database password: " database_password
 
 echo ""
 
-rbenv global 2.2.2
+rbenv global $ruby_version
 rbenv rehash
 
 cat << EOS > Gemfile
 source 'http://rubygems.org'
-ruby '2.2.2'
-gem 'rails', '4.2.1'
+ruby '$ruby_version'
+gem 'rails', '$rails_version'
 EOS
 echo "### Gemfile created. ###"
 
@@ -34,6 +37,10 @@ echo "development.rb:"
 curl "https://raw.githubusercontent.com/suiyujin/rails-init/master/files/development.rb" -o config/environments/development.rb
 echo "ja.yml:"
 curl "https://raw.githubusercontent.com/suiyujin/rails-init/master/files/ja.yml" -o config/locales/ja.yml
+
+sed -i "" -E "s/^ruby \'.+$/ruby \'${ruby_version}\'/" Gemfile
+sed -i "" -E "s/^gem \'rails\', \'.+$/gem \'rails\', \'${rails_version}\'/" Gemfile
+echo "### modify Gemfile ###"
 
 bundle install --path vendor/bundle
 
@@ -57,4 +64,3 @@ echo "### reset default_locale ###"
 
 git init
 git add .
-git status
